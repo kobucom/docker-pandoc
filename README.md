@@ -77,5 +77,6 @@ See licenses for products used to build this docker image: Apache2, Pandoc and D
 ---
 
 2020-09-13 created and tested under raspberry pi with raspbian (armhf)
+2020-09-14 published to github as 'kobucom/docker-pandoc'
 
-Visit [Kobu.Com](https://kobu.com/docker-pandoc).
+Visit [Kobu.Com](https://kobu.com/docker/index-en.html).
