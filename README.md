@@ -43,7 +43,7 @@ You can check access and error logs by checking the host-side `logs` directory.
 Execute the following comman to run the web site.
 
 ```
-$ docker run --publish 8000:80 --detach \
+$ docker run --publish 8080:80 --detach \
 	--mount type=bind,src=/var/docker/pandoc/htdocs,dst=/usr/local/apache2/htdocs,ro \
 	--mount type=bind,src=/var/docker/pandoc/logs,dst=/usr/local/apache2/logs \
     pandoc:test
