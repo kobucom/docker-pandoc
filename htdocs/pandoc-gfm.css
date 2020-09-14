@@ -1,0 +1,57 @@
+/* last updated: 2020-jul-23 */
+/* stylesheet for dynamic pandoc output from markdown (gfm) */
+/* revised from htmlput.css for static pandoc output */
+
+/* table with grids all sides */
+table { border-collapse: collapse; }
+td, th { border: solid thin gray; padding: 6pt; font-family: sans-serif; }
+
+/* box surrounding embedder form */
+div.box { margin: 1em; padding: 0em 1em; border: dashed thin gray; }
+div.box textarea { vertical-align: top; }
+div.box p { font-size: 120%; font-family: sans-serif; }
+
+/* entry box size */
+textarea { width: 50em; }
+input[type="text"] { width: 50em; }
+
+/***** common to static and dynamic */
+
+/* code block (```) = <pre><code>..., quote (>) = <blockquote><p>... in pandoc */
+blockquote { line-height: 125%; font-size: 80%; }
+pre { line-height: 125%; margin: 1em; padding: 0.5em 0.5em; border: solid thin lightgrey; }
+p code { color: maroon }
+pre code { font-family: monospace; }
+
+/* from pandoc inline styles with --standalone option */
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+
+/* replacer classes */
+.smaller { font-size: 80% }
+.right { text-align: right }
+.border { border: solid thin gray }
+
+/* body default */
+* { line-height: 150%; }
+body { margin: 2em 4em; }
+li { margin-bottom: 0.3em; }
+
+/* title */
+h1, h2, h3, h4, h5, h6 { font-family: sans-serif; }
+h1, h3, h4 { color: navy; }
+h2
+{
+ margin-top: 3em;
+ margin-bottom: 1em;
+ border-top: 1px lightsteelblue solid;
+ padding-top: 0.5em;
+}
+
+/* link decoration */
+a:visited { color: navy; text-decoration: none }
+a:link { color: royalblue; text-decoration: none }
+a:hover { color: dodgerblue; }
+a:active { color: deepskyblue; }
