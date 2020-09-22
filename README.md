@@ -2,6 +2,8 @@
 
 This Docker image runs Apache web server and dynamically convert a Markdown file to HTML using the Pandoc converter and a simple apache filter.
 
+> This is a 'filter for local' version. See 'docker-pandoc-remote' for 'handler for remote' version.
+
 ## Components
 
 The container image includes:
