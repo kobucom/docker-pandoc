@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# pandoc-filter - external filter for local file access
+# Copyright (c) 2020 Kobu.Com. All rights reserved.
+# 2020-sep-14 tested on raspi published on github
+
+# This script is a mod_ext_filter-compliant external filter.
+# It basically serves a markdown file in the docker container.
+# Files in a host-side directory can be served if it is
+# bind-mounted to 'htdocs' directory.
+# See pandoc-handler if you want to serve files in a remote directory.
+
+#>&2 echo $(printenv)
+>&2 echo "pandoc-filter: $DOCUMENT_URI"
+
+# title to pass to pandoc
+BASENAME=$(basename -s .md $DOCUMENT_URI)
+
+# apache passes the requested file content to the filter through stdin
+/usr/bin/pandoc -f gfm -t html5 -c "/pandoc-gfm.css" \
+	-T "Converted" -M title=${BASENAME}
+
+#  -c /pandoc-gfm.css - this css used if it resides at apache document root
+#  -T <title prefix>
+#  -M title=<basename> - both together form "prefix - basename"

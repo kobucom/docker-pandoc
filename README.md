@@ -1,8 +1,8 @@
 # Markdown-to-HTML Conversion Web Site in Docker Container
 
-This Docker image runs Apache web server and dynamically convert a Markdown file to HTML using the Pandoc converter and a simple apache filter.
+This Docker image runs Apache web server and dynamically converts a Markdown file to HTML using Pandoc converter and a simple apache filter.
 
-> This is a 'filter for local' version. See 'docker-pandoc-remote' for 'handler for remote' version.
+> Use this version if you can freely manage your Docker host and plan to serve local files in the Docker host. See 'docker-pandoc-remote' if you want to place source files in some remote location or put the image in a public container service.
 
 ## Components
 
@@ -10,8 +10,8 @@ The container image includes:
 
 - base image: `httpd` from Docker Hub,
 - `Pandoc` installed during Docker build,
-- Apache filter written in Bash shell (pandoc-filter), and
-- Apache configuration to enable the filter (local.conf).
+- Apache mod_ext_filter-compliant filter written in Bash shell (pandoc-filter), and
+- Apache configuration file to enable the filter (local.conf).
 
 ## Build
 
@@ -22,6 +22,9 @@ $ git clone https://github.com/kobucom/docker-pandoc
 $ cd docker-pandoc
 $ docker build --tag pandoc:test .
 ```
+
+> Prebuilt images (amd64 and arm) are available at the Docker Hub: [kobucom/pandoc](https://hub.docker.com/r/kobucom/pandoc).
+Choose images tagged as 'local'. 
 
 ## Prerequisites
 
@@ -42,7 +45,7 @@ You can check access and error logs by checking the host-side `logs` directory.
 
 ## Run
 
-Execute the following comman to run the web site.
+Execute the following command to run the web site.
 
 ```
 $ docker run --publish 8080:80 --detach \
@@ -78,7 +81,9 @@ See licenses for products used to build this docker image: Apache2, Pandoc and D
 
 ---
 
-2020-09-13 created and tested under raspberry pi with raspbian (armhf)
-2020-09-14 published to github as 'kobucom/docker-pandoc'
+2020-09-13 created and tested under raspberry pi with raspbian (armhf)  
+2020-09-14 published to github as 'kobucom/docker-pandoc'  
+2020-09-20 tested under debian10 (buster) on cloud (amd64)  
+2020-09-21 published to docker hub as 'kobucom/pandoc:local'
 
 Visit [Kobu.Com](https://kobu.com/docker/index-en.html).
